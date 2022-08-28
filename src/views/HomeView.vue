@@ -1,18 +1,36 @@
 <script>
+import axios from "axios";
+
 export default {
   data: function () {
     return {
-      message: "Welcome to Vue.js!",
+      wines: [],
     };
   },
-  created: function () {},
-  methods: {},
+  created: function () {
+    this.indexWines();
+  },
+  methods: {
+    indexWines: function () {
+      axios.get("/wines.json").then((response) => {
+        this.wines = response.data;
+        console.log("All wines:", response.data);
+      });
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="home">
-    <h1>{{ message }}</h1>
+  <div class="index">
+    <h1>Wines</h1>
+    <div v-for="wine in wines" v-bind:key="wine.id">
+      <h2>{{ wine.name }}</h2>
+      <p>{{ wine.producer }}</p>
+      <p>{{ wine.vintage }}</p>
+      <p>{{ wine.blend }}</p>
+      <p>{{ wine.price }}</p>
+    </div>
   </div>
 </template>
 
