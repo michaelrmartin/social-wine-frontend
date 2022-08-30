@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import SignupView from "../views/SignupView.vue";
 import LoginView from "../views/LoginView.vue";
 import LogoutView from "../views/LogoutView.vue";
+import UserWine from "../views/UserWine.vue";
 
 const routes = [
   {
@@ -18,6 +20,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
+    path: "/signup",
+    name: "signup",
+    component: SignupView,
+  },
+  {
     path: "/login",
     name: "login",
     component: LoginView,
@@ -26,6 +33,11 @@ const routes = [
     path: "/logout",
     name: "logout",
     component: LogoutView,
+  },
+  {
+    path: "/userwine",
+    name: "userwine",
+    component: UserWine,
   },
 ];
 
