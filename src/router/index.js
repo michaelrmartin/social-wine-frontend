@@ -3,7 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import SignupView from "../views/SignupView.vue";
 import LoginView from "../views/LoginView.vue";
 import LogoutView from "../views/LogoutView.vue";
-import UserWine from "../views/UserWine.vue";
+import UserWineView from "../views/UserWineView.vue";
 
 const routes = [
   {
@@ -37,7 +37,7 @@ const routes = [
   {
     path: "/userwine",
     name: "userwine",
-    component: UserWine,
+    component: UserWineView,
   },
 ];
 

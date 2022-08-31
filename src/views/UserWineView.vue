@@ -5,7 +5,6 @@ export default {
   data: function () {
     return {
       userWines: [],
-      wines: [],
     };
   },
   created: function () {
@@ -25,12 +24,12 @@ export default {
 <template>
   <div class="index">
     <h1>Wines</h1>
-    <div v-for="wine in wines" v-bind:key="wine.id">
-      <h2>{{ wine.name }}</h2>
-      <p>{{ wine.producer }}</p>
-      <p>{{ wine.vintage }}</p>
-      <p>{{ wine.blend }}</p>
-      <p>{{ wine.price }}</p>
+    <div v-for="userWine in userWines" v-bind:key="userWine.id">
+      <h2>{{ userWine.wine.name }}</h2>
+      <p>{{ userWine.wine.producer }}</p>
+      <p>{{ userWine.wine.vintage }}</p>
+      <p>{{ userWine.wine.blend }}</p>
+      <p>{{ userWine.wine.price }}</p>
     </div>
   </div>
 </template>
