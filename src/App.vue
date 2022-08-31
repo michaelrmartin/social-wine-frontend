@@ -10,6 +10,8 @@
     |
     <router-link v-if="isLoggedIn" to="/logout">Logout</router-link>
     |
+    <router-link v-if="!isLoggedIn" to="/signup">Signup</router-link>
+    |
     <router-link v-if="isLoggedIn" to="/userwine">User Wines</router-link>
   </nav>
   <router-view />

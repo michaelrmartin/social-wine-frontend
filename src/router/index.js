@@ -3,7 +3,8 @@ import HomeView from "../views/HomeView.vue";
 import SignupView from "../views/SignupView.vue";
 import LoginView from "../views/LoginView.vue";
 import LogoutView from "../views/LogoutView.vue";
-import UserWineView from "../views/UserWineView.vue";
+import UserWineIndexView from "../views/UserWineIndexView.vue";
+import UserShowView from "../views/UserShowView.vue";
 
 const routes = [
   {
@@ -35,9 +36,14 @@ const routes = [
     component: LogoutView,
   },
   {
-    path: "/userwine",
-    name: "userwine",
-    component: UserWineView,
+    path: "/user_wines",
+    name: "user-wine-index",
+    component: UserWineIndexView,
+  },
+  {
+    path: "/users/:id",
+    name: "user-show",
+    component: UserShowView,
   },
 ];
 
