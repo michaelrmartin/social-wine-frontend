@@ -22,9 +22,7 @@ export default {
 </script>
 
 <template>
-  <div>
-    <div v-for="user in users" v-bind:key="user.id">
-      <h2>{{ user.name }}</h2>
-    </div>
+  <div v-for="user in users" v-bind:key="user.id">
+    <h2>{{ user.name }}</h2>
   </div>
 </template>
