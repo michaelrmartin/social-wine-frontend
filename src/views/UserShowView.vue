@@ -15,6 +15,7 @@ export default {
     showUser: function () {
       axios.get("/users/" + this.$route.params.id + ".json").then((response) => {
         this.user = response.data;
+        this.wines = this.user.wines;
         console.log("One user: ", response.data);
       });
     },
@@ -27,7 +28,7 @@ export default {
     <h2>{{ user.name }} Profile</h2>
     <div class="index">
       <h1>Wines</h1>
-      <div v-for="wine in wines" v-bind:key="wine.id">
+      <div v-for="wine in user.wines" v-bind:key="wine">
         <h2>{{ wine.name }}</h2>
         <p>{{ wine.producer }}</p>
         <p>{{ wine.vintage }}</p>

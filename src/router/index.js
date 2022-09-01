@@ -5,6 +5,7 @@ import LoginView from "../views/LoginView.vue";
 import LogoutView from "../views/LogoutView.vue";
 import UserWineIndexView from "../views/UserWineIndexView.vue";
 import UserShowView from "../views/UserShowView.vue";
+import UserIndexView from "../views/UserIndexView.vue";
 
 const routes = [
   {
@@ -39,6 +40,11 @@ const routes = [
     path: "/user_wines",
     name: "user-wine-index",
     component: UserWineIndexView,
+  },
+  {
+    path: "/users",
+    name: "user-index",
+    component: UserIndexView,
   },
   {
     path: "/users/:id",
