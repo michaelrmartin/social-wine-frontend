@@ -7,6 +7,7 @@ import UserWineIndexView from "../views/UserWineIndexView.vue";
 import UserShowView from "../views/UserShowView.vue";
 import UserIndexView from "../views/UserIndexView.vue";
 import WineIndexView from "../views/WineIndexView.vue";
+import WineNewView from "../views/WineNewView.vue";
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
     path: "/wines",
     name: "wines-index",
     component: WineIndexView,
+  },
+  {
+    path: "/wines/new",
+    name: "wines-create",
+    component: WineNewView,
   },
   {
     path: "/user_wines",

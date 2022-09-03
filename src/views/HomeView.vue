@@ -22,14 +22,22 @@ export default {
 </script>
 
 <template>
-  <div class="index">
-    <h1>Wines</h1>
-    <div v-for="wine in wines" v-bind:key="wine.id">
-      <h2>{{ wine.name }}</h2>
-      <p>{{ wine.producer }}</p>
-      <p>{{ wine.vintage }}</p>
-      <p>{{ wine.blend }}</p>
-      <p>{{ wine.price }}</p>
+  <div>
+    <div class="index">
+      <h1>All Wines</h1>
+      <div class="row">
+        <div class="col-sm-4" v-for="wine in wines" v-bind:key="wine.id">
+          <div class="card mb-4" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">{{ wine.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
+              <p class="card-text">{{ wine.style }}</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
