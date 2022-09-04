@@ -6,10 +6,18 @@ export default {
     return {
       user: {},
       wines: [],
+      favoriteWines: [],
+      currentWine: {},
+      editMyWine: false,
     };
   },
   created: function () {
     this.showUser();
+  },
+  watch: {
+    currentWine: function () {
+      console.log(this.currentWine);
+    },
   },
   methods: {
     showUser: function () {
@@ -17,6 +25,19 @@ export default {
         this.user = response.data;
         this.wines = this.user.wines;
         console.log("One user: ", response.data);
+        console.log("wines: ", this.user.wines);
+        console.log("userwines: ", this.user.user_wines);
+        console.log("favorites: ", this.favoriteWines);
+      });
+    },
+    createUserFavorite: function () {
+      axios.patch("/user_wines/" + this.currentWine.id + ".json", { favorite: true }).then((response) => {
+        console.log("Success:", response.data);
+      });
+    },
+    destroyUserWine: function () {
+      axios.delete("/user_wines/" + this.currentWine.id + ".json").then((response) => {
+        console.log(response.data);
       });
     },
   },
@@ -26,17 +47,64 @@ export default {
 <template>
   <div>
     <h1>{{ user.name }}'s Profile</h1>
-    <div class="index">
+    <div class="container">
       <h2>{{ user.name }}'s Wines</h2>
-      <div class="row">
-        <div class="col-sm-4" v-for="wine in user.wines" v-bind:key="wine.id">
-          <div class="card mb-4" style="width: 18rem">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" v-for="wine in wines" v-bind:key="wine.id">
+          <div class="card h-100" style="width: 18rem">
             <div class="card-body">
               <h5 class="card-title">{{ wine.name }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
               <p class="card-text">{{ wine.style }}</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a
+                data-toggle="modal"
+                data-target="#exampleModal"
+                class="card-link"
+                v-on:click="(currentWine = wine), (editMyWine = false)"
+              >
+                More Info
+              </a>
+              <a
+                data-toggle="modal"
+                data-target="#exampleModal"
+                class="card-link"
+                v-on:click="(currentWine = wine), (editMyWine = true)"
+              >
+                Edit Info
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+              <h5>{{ currentWine.name }}</h5>
+              <h6>Grapes: {{ currentWine.blend }}</h6>
+              <p>Country: {{ currentWine.country }}</p>
+              <p>Profile: {{ currentWine.style }}</p>
+              <p>Description: {{ currentWine.description }}</p>
+              <p>Price: ${{ currentWine.price }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" v-if="editMyWine" v-on:click="createUserFavorite()">
+                Add to My Favorites
+              </button>
+              <button type="button" class="btn btn-primary" v-if="editMyWine" v-on:click="destroyUserWine()">
+                Delete
+              </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
