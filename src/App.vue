@@ -1,14 +1,13 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
+    <router-link v-if="!isLoggedIn" to="/">Home</router-link>
+    <router-link v-if="isLoggedIn" to="/wines">Home</router-link>
     |
     <router-link v-if="!isLoggedIn" to="/signup">Signup</router-link>
+    <router-link v-if="isLoggedIn" to="/users">Epicures</router-link>
     |
     <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-    |
     <router-link v-if="isLoggedIn" to="/logout">Logout</router-link>
-    |
-    <router-link v-if="isLoggedIn" to="/user_wines">User Wines</router-link>
   </nav>
   <router-view />
 </template>
@@ -30,7 +29,7 @@ export default {
 
 <style>
 #app {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
