@@ -65,6 +65,7 @@ export default {
             <div class="card-body">
               <h5 class="card-title">{{ wine.name }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
+              <p class="card-text">{{ wine.country }}</p>
               <p class="card-text">{{ wine.style }}</p>
               <a
                 data-toggle="modal"
@@ -127,7 +128,7 @@ export default {
 <style>
 .selected {
   /* color: white; */
-  background-color: #e6e6e6;
+  background-color: #5e5b5b;
   transition: background-color 1s ease;
 }
 .list-move,

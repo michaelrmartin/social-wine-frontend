@@ -30,7 +30,7 @@ export default {
 
 <style>
 #app {
-  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -48,5 +48,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+body {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
 </style>

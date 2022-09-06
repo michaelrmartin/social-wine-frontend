@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div class="signup">
+  <div class="container">
     <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <ul>
@@ -46,6 +46,18 @@ export default {
       <div>
         <label>Password confirmation:</label>
         <input type="password" v-model="newUserParams.password_confirmation" />
+      </div>
+      <div>
+        <label>Location:</label>
+        <input type="text" v-model="newUserParams.location" />
+      </div>
+      <div>
+        <label>Bio:</label>
+        <input type="text" v-model="newUserParams.bio" />
+      </div>
+      <div>
+        <label>Avatar:</label>
+        <input type="text" v-model="newUserParams.photo_url" />
       </div>
       <input type="submit" value="Submit" />
     </form>
