@@ -85,6 +85,7 @@ export default {
               {{ user.bio }}
             </h5>
             <div>
+              <a class="btn btn-primary" v-bind:href="'/users/' + currentUser.id" role="button">Visit My Profile</a>
               <button
                 type="button"
                 class="btn btn-primary"
