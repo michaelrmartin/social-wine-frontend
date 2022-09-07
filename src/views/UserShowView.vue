@@ -47,20 +47,23 @@ export default {
 <template>
   <div>
     <div class="container">
-      <div class="card mb-3" style="max-width: 100; justify-content: center">
+      <div
+        class="card mb-3"
+        style="max-width: 100; justify-content: center; border-width: 0.25rem; border-color: lightcoral"
+      >
         <div class="row g-0">
           <div class="col-md-4">
             <img v-bind:src="user.photo_url" class="img-fluid rounded-start" alt="..." />
           </div>
           <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{ user.name }}</h5>
-              <p class="card-text">
-                {{ user.bio }}
-              </p>
+            <div class="card-body" style="padding: 75px">
+              <h3 class="card-title">{{ user.name }}</h3>
               <p class="card-text">
                 <small class="text-muted">{{ user.location }}</small>
               </p>
+              <h5 class="card-text">
+                {{ user.bio }}
+              </h5>
             </div>
           </div>
         </div>
@@ -71,7 +74,7 @@ export default {
       <h2>{{ user.name }}'s Wines</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" v-for="wine in wines" v-bind:key="wine.id">
-          <div class="card h-100" style="width: 18rem">
+          <div class="card h-100" style="width: 18rem; border-width: 0.25rem; border-color: lightcoral">
             <div class="card-body">
               <h5 class="card-title">{{ wine.name }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
