@@ -62,6 +62,7 @@ export default {
               style="width: 18rem; border-width: 0.25rem; border-color: lightcoral"
               v-bind:class="{ selected: wine === currentWine }"
             >
+              <img v-bind:src="wine.photo" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">{{ wine.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
@@ -124,5 +125,11 @@ export default {
 }
 .list-leave-active {
   position: absolute;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: contain;
 }
 </style>

@@ -75,6 +75,7 @@ export default {
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" v-for="wine in wines" v-bind:key="wine.id">
           <div class="card h-100" style="width: 18rem; border-width: 0.25rem; border-color: lightcoral">
+            <img v-bind:src="wine.photo" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">{{ wine.name }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
@@ -135,3 +136,11 @@ export default {
     </div>
   </div>
 </template>
+
+<style>
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: contain;
+}
+</style>
