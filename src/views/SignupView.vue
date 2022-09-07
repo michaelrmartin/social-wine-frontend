@@ -55,43 +55,43 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" style="width: 50%">
     <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div>
-        <label>Name:</label>
-        <input type="text" v-model="name" />
+      <div class="mb-3">
+        <label for="signupNameInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="signupNameInput" v-model="name" />
       </div>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="email" />
+      <div class="mb-3">
+        <label for="signupEmailInput" class="form-label">Email</label>
+        <input type="email" class="form-control" id="signupEmailInput" v-model="email" />
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="password" />
+      <div class="mb-3">
+        <label for="signupPasswordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="signupPasswordInput" v-model="password" />
       </div>
-      <div>
-        <label>Password confirmation:</label>
-        <input type="password" v-model="password_confirmation" />
+      <div class="mb-3">
+        <label for="signupPasswordConfirmInput" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="signupPasswordConfirmInput" v-model="password_confirmation" />
       </div>
-      <div>
-        <label>Location:</label>
-        <input type="text" v-model="location" />
+      <div class="mb-3">
+        <label for="signupLocationInput" class="form-label">Location</label>
+        <input type="text" class="form-control" id="signupLocationInput" v-model="location" />
       </div>
-      <div>
-        <label>Phone number:</label>
-        <input type="text" v-model="phone" />
+      <div class="mb-3">
+        <label for="signupPhoneInput" class="form-label">Phone number</label>
+        <input type="text" class="form-control" id="signupPhoneInput" v-model="phone" />
       </div>
-      <div>
-        <label>Bio:</label>
-        <input type="text" v-model="bio" />
+      <div class="mb-3">
+        <label for="signupBioInput" class="form-label">Bio</label>
+        <textarea class="form-control" id="signupBioInput" v-model="bio"></textarea>
       </div>
-      <div>
-        Image:
-        <input type="file" v-on:change="setFile($event)" ref="fileInput" />
+      <div class="mb-3">
+        <label for="signupImageInput" class="form-label">Image</label>
+        <input type="file" class="form-control" id="signupImageInput" v-on:change="setFile($event)" ref="fileInput" />
       </div>
       <input type="submit" value="Submit" />
     </form>

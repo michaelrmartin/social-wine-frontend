@@ -38,65 +38,78 @@ export default {
 
 <template>
   <div class="container">
-    <h1>All Wines</h1>
-    <div class="row p-3">
-      Search:
-      <input type="text" v-model="nameSearch" list="names" />
-      <datalist id="names">
-        <option v-for="wine in filterWines()" v-bind:key="wine.id">{{ wine.title }}</option>
-      </datalist>
+    <div class="row">
+      <img
+        src="https://res.cloudinary.com/do4nbvqf0/image/upload/v1662576124/QORKD_ibtdyt.jpg"
+        style="border-radius: 25px; max-width: 100%; max-height: 50%"
+      />
     </div>
-    <TransitionGroup name="list">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="row p-3">
+        Search:
+        <input type="text" v-model="nameSearch" list="names" />
+        <datalist id="names">
+          <option v-for="wine in filterWines()" v-bind:key="wine.id">{{ wine.name }}</option>
+        </datalist>
+      </div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" v-for="wine in filterWines()" v-bind:key="wine.id" v-on:mouseover="currentWine = wine">
-          <div class="card h-100" style="width: 18rem" v-bind:class="{ selected: wine === currentWine }">
-            <div class="card-body">
-              <h5 class="card-title">{{ wine.name }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
-              <p class="card-text">{{ wine.country }}</p>
-              <p class="card-text">{{ wine.style }}</p>
-              <a data-toggle="modal" data-target="#exampleModal" class="card-link" v-on:click="currentWine = wine">
-                More Info
-              </a>
+        <TransitionGroup name="list">
+          <div class="col" v-for="wine in filterWines()" v-bind:key="wine.id" v-on:mouseover="currentWine = wine">
+            <div
+              class="card h-100"
+              style="width: 18rem; border-width: 0.25rem; border-color: lightcoral"
+              v-bind:class="{ selected: wine === currentWine }"
+            >
+              <div class="card-body">
+                <h5 class="card-title">{{ wine.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ wine.blend }}</h6>
+                <p class="card-text">{{ wine.country }}</p>
+                <p class="card-text">{{ wine.style }}</p>
+                <a data-toggle="modal" data-target="#exampleModal" class="card-link" v-on:click="currentWine = wine">
+                  More Info
+                </a>
+              </div>
             </div>
           </div>
+        </TransitionGroup>
+      </div>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel"></h4>
+        </div>
+        <div class="modal-body">
+          <h5>{{ currentWine.name }}</h5>
+          <h6>Grapes: {{ currentWine.blend }}</h6>
+          <p>Country: {{ currentWine.country }}</p>
+          <p>Profile: {{ currentWine.style }}</p>
+          <p>Description: {{ currentWine.description }}</p>
+          <p>Price: ${{ currentWine.price }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="exampleModalLabel"></h4>
-            </div>
-            <div class="modal-body">
-              <h5>{{ currentWine.name }}</h5>
-              <h6>Grapes: {{ currentWine.blend }}</h6>
-              <p>Country: {{ currentWine.country }}</p>
-              <p>Profile: {{ currentWine.style }}</p>
-              <p>Description: {{ currentWine.description }}</p>
-              <p>Price: ${{ currentWine.price }}</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </TransitionGroup>
+    </div>
   </div>
 </template>
 
 <style>
 .selected {
   /* color: white; */
-  background-color: #e6e6e6;
+  background-color: #f0abab;
   transition: background-color 1s ease;
 }
 .list-move,
