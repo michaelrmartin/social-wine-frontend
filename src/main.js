@@ -6,7 +6,7 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "delicate-bush-1800.fly.dev";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://delicate-bush-1800.fly.dev";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
