@@ -136,7 +136,8 @@ export default {
 <style>
 .selected {
   /* color: white; */
-  background-color: #5e5b5b;
+  background-color: pink;
+  border-color: coral;
   transition: background-color 1s ease;
 }
 .list-move,
